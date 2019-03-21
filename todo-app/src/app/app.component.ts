@@ -13,6 +13,7 @@ export class AppComponent {
     { name: 'Hoc bai', completed: false }
   ];
   public taskname: string;
+  public arr: any[] = [];
   // khai bao bien can trong mang
   add() {
     this.listTodo.push({ name: this.taskname, completed: false });
@@ -25,36 +26,42 @@ export class AppComponent {
     // tslint:disable-next-line:no-unused-expression
     this.listTodo[this.listTodo.indexOf(todo)].completed = !todo.completed;
   }
-  generateSpiralMatrix(n) {
-    let arr: number[][] = [];
+  generateSpiralMatrix(n: number): number[][] {
+    this.arr = [];
+    let childArr: number[] = [];
     let i = 0;
     let giaTri = 1;
-    let j = 0;
     let vong = 0;
-    let hang = n - 1;
-    let cot = n - 1;
-    while (vong <= n / 2) {
-      for (i = vong; i <= cot; i++) {
-        arr[vong][i] = giaTri++;
+    let index = n;
+    while (giaTri <= n * n) {
+      childArr.push(giaTri);
+      if (giaTri % n === 0) {
+        this.arr.push(childArr);
+        childArr = [];
       }
-      for (i = vong + 1; i <= hang; i++) {
-        arr[i][cot] = giaTri++;
+      giaTri++;
+    }
+    giaTri = 1;
+    while (giaTri <= n * n) {
+      // childarr top
+      for (i = vong; i <= index - 1; i++) {
+        this.arr[vong][i] = giaTri++;
       }
-      for (i = cot - 1; i >= vong; i--) {
-        arr[hang][i] = giaTri++;
+      // childarr right
+      for (i = vong + 1; i <= index - 1 ; i++) {
+        this.arr[i][index - 1 ] = giaTri++;
       }
-      for (i = hang - 1; i >= vong; i--) {
-        arr[i][vong] = giaTri++;
+      // childarr bottom
+      for (i = index - 2; i >= vong; i--) {
+        this.arr[index - 1][i] = giaTri++;
+      }
+      //// childarr left
+      for (i = index - 2; i > vong; i--) {
+        this.arr[i][vong] = giaTri++;
       }
       vong++;
-      hang--;
-      cot--;
+      index--;
     }
-    // console.log(this.arr.length);
-    for (i = 0; i < n; i++) {
-      for (j = 0; j < n; j++) {
-        console.log(arr[i][j]);
-      }
-    }
+    return this.arr ;
   }
 }

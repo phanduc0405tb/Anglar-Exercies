@@ -21,6 +21,13 @@
   <p></p>
   <input type="number" #kichThuocMang/>
   <button (click)="generateSpiralMatrix(kichThuocMang.value)">Show array</button>
-
+  <p></p>
+ <div>
+   <p *ngFor="let i of arr">
+     <span *ngFor="let j of i">
+       {{j}}
+     </span>
+   </p>
+ </div>
 </div>
 <router-outlet></router-outlet>
