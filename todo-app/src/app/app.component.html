@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center" >
+  <div [ngClass]="{'container': true}">
+    <h1>
+    {{ title }}
+    </h1>
+  <h4>Enter text into  the input filed to add items to your list </h4>
+  <h4>Click the item to mark it as complete</h4>
+  <h4>Click the "X" to remove the item from your list</h4>
+  <input type="text" placeholder="Enter Todo" [(ngModel)]="taskname" #taskName/>&nbsp;
+  <input type="button" (click)="add()" [ngClass]="{'add': true}" value="Add">
+  <p></p>
+  <ul>
+    <li [ngClass]="{'styleTagA': true,'Complete':todo.completed}" *ngFor="let todo of listTodo" (click)="changComplete(todo)">
+      Task Name: {{todo.name}} Completed: {{todo.completed}}
+      <button (click)="delete(todo)" [ngClass]="{'delete': true}" >X</button>
+      <p></p>
+    </li>
+  </ul>
+  </div>
+  <p></p>
+  <input type="number" #kichThuocMang/>
+  <button (click)="generateSpiralMatrix(kichThuocMang.value)">Show array</button>
+
+</div>
+<router-outlet></router-outlet>

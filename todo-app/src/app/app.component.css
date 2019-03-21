@@ -1,0 +1,24 @@
+.styleTagA{
+    list-style: none;
+}
+.container{
+    width: 400px;
+    border: 1px solid black;
+    margin-left: 35%;
+}
+.Complete{
+    background-color: greenyellow;
+    list-style: none;
+}
+.delete{
+    border-radius: 100px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+.add{
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
