@@ -1,0 +1,10 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+ <div [ngClass]="{'container': true}">
+  <h1>
+    {{ title }}!
+  </h1>
+<router-outlet></router-outlet>
+<app-input (onPressEnter)="handleInput($event)" ></app-input>
+<app-list [data]="listTodo" (handleComplete)="completeTodo($event)" (handleDelete)="deleteTodo($event)"></app-list>
+</div>

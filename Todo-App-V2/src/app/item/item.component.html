@@ -1,0 +1,4 @@
+<p (click)="Complete(todo.id)" >
+  <span>Task name: {{todo.text}} | Complete: {{todo.isCompleted}}</span>
+  <button (click)="Delete(todo.id)" [ngClass]="{'delete': true}">X</button>
+</p>

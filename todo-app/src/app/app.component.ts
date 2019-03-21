@@ -33,6 +33,7 @@ export class AppComponent {
     let giaTri = 1;
     let vong = 0;
     let index = n;
+    //
     while (giaTri <= n * n) {
       childArr.push(giaTri);
       if (giaTri % n === 0) {
@@ -43,19 +44,19 @@ export class AppComponent {
     }
     giaTri = 1;
     while (giaTri <= n * n) {
-      // childarr top
+      // thêm phần tử dòng trên cùng của một vòng xoắn
       for (i = vong; i <= index - 1; i++) {
         this.arr[vong][i] = giaTri++;
       }
-      // childarr right
+      // thêm phần tử vào cột phải của một vòng xoắn
       for (i = vong + 1; i <= index - 1 ; i++) {
         this.arr[i][index - 1 ] = giaTri++;
       }
-      // childarr bottom
+      // thêm phần tử vào dòng dưới cùng  của một vòng xoắn
       for (i = index - 2; i >= vong; i--) {
         this.arr[index - 1][i] = giaTri++;
       }
-      //// childarr left
+      // thêm phần tử vào cột bên trái của một vòng xoắn
       for (i = index - 2; i > vong; i--) {
         this.arr[i][vong] = giaTri++;
       }

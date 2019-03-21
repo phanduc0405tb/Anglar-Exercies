@@ -1,0 +1,7 @@
+<div >
+  <ul>
+    <li *ngFor="let item of data" [ngClass]="{'styleTagA': true,'Complete': item.isCompleted}">
+        <app-item [todo]="item" (onComplete)="onCompleted($event)" (onDelete)="onDeleted($event)"></app-item>
+    </li>
+  </ul>
+</div>
