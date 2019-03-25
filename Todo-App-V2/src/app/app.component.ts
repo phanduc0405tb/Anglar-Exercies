@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Todo } from '../model/Todo';
+import { TodoService } from './service/todo.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +9,7 @@ import { Todo } from '../model/Todo';
 export class AppComponent {
   title = 'Todo-App-V2';
    listTodo: Todo[] = [];
+   constructor(private todoService: TodoService) {}
    handleInput( value ) {
      const item: Todo = {
        id: new Date().getMilliseconds(),
@@ -15,6 +17,7 @@ export class AppComponent {
        isCompleted: false
      };
      this.listTodo.push(item);
+     this.todoService.logData(value);
    }
    completeTodo(id) {
      // tslint:disable-next-line:prefer-const

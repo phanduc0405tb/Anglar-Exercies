@@ -1,20 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SqrtPipe } from './SqrtPipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputComponent } from './input/input.component';
-import { ListComponent } from './list/list.component';
-import { ItemComponent } from './item/item.component';
-import { ChangecolorDirective } from './directive/changecolor.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
-    ListComponent,
-    ItemComponent,
-    ChangecolorDirective
+    SqrtPipe
   ],
   imports: [
     BrowserModule,
