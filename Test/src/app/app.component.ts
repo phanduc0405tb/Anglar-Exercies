@@ -16,4 +16,9 @@ export class AppComponent {
     name: 'abc',
     address: 'sssss'
   };
+  color = 'red';
+  isBool = true;
+  changStatus() {
+    this.isBool = !this.isBool;
+  }
 }
