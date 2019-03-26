@@ -6,16 +6,24 @@ import { TableComponent } from './table/table.component';
 import { TableServiceService } from './service/table-service.service';
 import { PipePhonePipe } from './pipes/pipe-phone.pipe';
 import { OrderModule } from 'ngx-order-pipe';
+import { OrderPipe } from './pipes/order.pipe';
+import { TestRouterComponent } from './test-router/test-router.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    PipePhonePipe
+    PipePhonePipe,
+    OrderPipe,
+    TestRouterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    OrderModule
+    OrderModule,
+    AppRoutingModule
   ],
   providers: [
     TableServiceService

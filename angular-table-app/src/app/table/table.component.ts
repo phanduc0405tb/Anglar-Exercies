@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
   changeFiledOrder(target) {
     this.textOrder =  target.value;
     // this.orderPipe.transform(this.listUser, this.textOrder);
-    // console.log(this.textOrder);
+    console.log(this.textOrder);
   }
   constructor(
     private tableService: TableServiceService,

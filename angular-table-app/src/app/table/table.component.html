@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of listUser | orderBy: textOrder : false : true">
+    <tr *ngFor="let user of listUser | order: textOrder ">
       <th scope="row">{{user.id}}</th>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
@@ -36,3 +36,6 @@
     </tr>
   </tbody>
 </table>
+<p>
+  <a [routerLink]="['/dashbroads']">Back</a>
+</p>
