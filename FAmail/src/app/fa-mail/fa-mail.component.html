@@ -1,0 +1,31 @@
+<div class="container-fluied mt-3" style="margin:20px">
+    <br>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1"> Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Preferences</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content" > 
+      <div id="home" class="container-fluied tab-pane active"><br>
+        <h3>HOME</h3>
+        <app-left-mail (sendFolderName)="sendData($event)"></app-left-mail>
+        <app-right-mail [foldername]="folder"></app-right-mail>
+      </div>
+      <div id="menu1" class="container-fluied tab-pane fade"><br>
+        <h3>This page is under construction</h3>
+      </div>
+      <div id="menu2" class="container-fluied tab-pane fade"><br>
+        <h3>This page is under construction</h3>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,9 @@
+<nav class="navbar bg-light" style=" background-color:#c5bfbf !important" >
+    <!-- Links -->
+    <ul class="navbar-nav navleft" >
+      <li  [ngClass]="{'nav-item': true}" *ngFor="let item of listFolder" (click)="changActive($event)">
+        <a [ngClass]="{'nav-link': true,'active':true}" href="#" style="color:black"><i class="far fa-folder"></i> {{item.folder}}</a>
+      </li>
+    </ul>
+  
+  </nav>

@@ -1,0 +1,14 @@
+.bg-light {
+    background-color: #f8f9fa!important;
+    width: 10% !important;
+    float: left;
+    padding: 0;
+}
+.navleft{
+    width: 100% !important;
+}
+.active{
+    color: white !important;
+    background-color: blue;
+    padding-left: 13px;
+}
