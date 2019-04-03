@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MailmanagmentService } from '../service/mailmanagment.service';
 import { Mail } from '../model/mail';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-left-mail',
@@ -10,12 +11,19 @@ import { Mail } from '../model/mail';
 export class LeftMailComponent implements OnInit {
 
   listFolder: Mail[] = [];
+  account = '';
   isActive = false;
-  constructor(  private mailService: MailmanagmentService) { }
-
-  @Output() sendFolderName = new EventEmitter();
+  constructor(  private mailService: MailmanagmentService,
+                private router: Router,
+                private activeRouter: ActivatedRoute
+    ) { }
   ngOnInit() {
     this.getListFolder();
+    this.activeRouter.parent.params.subscribe( param => {
+      // tslint:disable-next-line:no-unused-expression
+      this.account = param.account;
+    });
+    this.router.navigateByUrl('/appmessages/' + this.account + '/mymessages/travel' );
   }
    getListMail() {
    return this.mailService.getData();
@@ -38,9 +46,5 @@ export class LeftMailComponent implements OnInit {
       }
      });
      return this.listFolder;
-   }
-   changActive($event) {
-     // console.log($event.target.text);
-     this.sendFolderName.emit($event.target.text);
    }
 }

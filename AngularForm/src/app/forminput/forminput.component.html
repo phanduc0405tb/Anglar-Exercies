@@ -1,0 +1,194 @@
+<div class="container-fluid">
+    <div style="text-align:center">
+        <h1 style=" padding-top: 5%">
+            Survey Form
+        </h1>
+      </div>      
+  <div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="rowTab">
+        <div class="labels">
+          <label>* Name: </label>
+        </div>
+        <div class="rightTab">
+          <input
+            autofocus=""
+            formControlName="name"
+            class="input-field"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div
+          *ngIf="
+            contactForm.controls.name.invalid &&
+            (contactForm.controls.name.dirty ||
+              contactForm.controls.name.touched)
+          "
+          class="error-input"
+        >
+          <div *ngIf="contactForm.controls.name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="contactForm.controls.name.errors.minlength">
+            Name must be at least 5 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label>* Email: </label>
+        </div>
+        <div class="rightTab">
+          <input
+            autofocus=""
+            formControlName="email"
+            class="input-field"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div
+          class="error-input"
+          *ngIf="
+            contactForm.controls.email.invalid &&
+            (contactForm.controls.email.dirty ||
+              contactForm.controls.email.touched)
+          "
+        >
+          <div *ngIf="contactForm.controls.email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="contactForm.controls.email.errors.minlength">
+            Name must be at least 10 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="rowTab">
+        <div class="labels">
+          <label>* Age: </label>
+        </div>
+        <div class="rightTab">
+          <input
+            type="number"
+            autofocus=""
+            formControlName="age"
+            class="input-field"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div
+          class="error-input"
+          *ngIf="
+            contactForm.controls.age.invalid &&
+            (contactForm.controls.age.dirty || contactForm.controls.age.touched)
+          "
+        >
+          <div *ngIf="contactForm.controls.age.errors.required">
+            Age is required!
+          </div>
+          <div *ngIf="contactForm.controls.age.errors.min">
+            Age >=5 !
+          </div>
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label>
+            Which option best describes your current role?
+          </label>
+        </div>
+        <div class="rightTab">
+          <select formControlName="currentRole" class="dropdown ">
+            <option disabled value="default">Select an option</option>
+            <option
+              *ngFor="let currentRole of currentRoles"
+              [value]="currentRole"
+            >
+              {{ currentRole }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label>
+            * How likely is that you would recommend freeCodeCamp to a friend?
+          </label>
+        </div>
+        <div class="rightTab">
+          <p class="radio">
+            <input
+              type="radio"
+              formControlName="recommend"
+              value="Definitely"
+            />
+            Definitely
+          </p>
+          <p class="radio">
+            <input type="radio" formControlName="recommend" value="Maybe" />
+            Maybe
+          </p>
+          <p class="radio">
+            <input type="radio" formControlName="recommend" value="Not sure" />
+            Not sure
+          </p>
+        </div>
+        <div class="error-input" *ngIf="contactForm.controls.recommend.invalid">
+          Recommend is required!
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label>What do you like most in FCC: </label>
+        </div>
+        <div class="rightTab">
+          <select formControlName="likeMostFCC" class="dropdown">
+            <option disabled value="default">Select an option</option>
+            <option
+              *ngFor="let likeMostFCC of likeMostFCCs"
+              [value]="likeMostFCC"
+            >
+              {{ likeMostFCC }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label
+            >Things that should be improved in the future (Check all that
+            apply):
+          </label>
+        </div>
+        <div class="rightTab">
+          <div formArrayName="skill">
+            <div *ngFor="let item of Skills; let i = index">
+              <input type="checkbox" [formControlName]="i" />&nbsp;<span>{{
+                Skills[i].name
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rowTab">
+        <div class="labels">
+          <label>Any Comments or Suggestions? </label>
+        </div>
+        <div class="rightTab">
+          <textarea
+            formControlName="comment"
+            class="input-field"
+            style="height:50px;resize:vertical;"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+      </div>
+      <input
+        [ngClass]="{ 'btn-submit': true, 'btn-hover': contactForm.valid }"
+        type="submit"
+        value="Submit"
+        [disabled]="!contactForm.valid"
+      />
+    </form>
+  </div>
+</div>

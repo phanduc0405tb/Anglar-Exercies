@@ -1,0 +1,27 @@
+<div class="container-fluied mt-3" style="margin:20px">
+  <div class="header-detail row">
+    <div class="col-md-8 title">
+      <h3>{{ message.subject }}</h3>
+      <h5>{{ message.from }} -> {{ message.to }}</h5>
+    </div>
+    <div class="col-md-4">
+      <p class="date">{{ message.date | date: "medium" }}</p>
+      <div>
+        <button type="button" class="btn btn-primary edit">
+          <i class="fas fa-reply"></i> &nbsp; Replly</button
+        >&nbsp;
+        <button type="button" class="btn btn-primary edit">
+          <i class="fas fa-forward"></i> &nbsp; Forward</button
+        >&nbsp;
+        <button type="button" class="btn btn-primary edit">
+          <i class="fas fa-times"></i> &nbsp; Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content-detail" style="margin:20px">
+    <p>
+      {{ message.body }}
+    </p>
+  </div>
+</div>

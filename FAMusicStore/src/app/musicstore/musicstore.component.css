@@ -1,0 +1,19 @@
+.content-list{
+    width: 90%;
+    margin: auto;
+    border: 1px solid red;
+    padding-left: 3%;
+    height: 400px;
+    overflow: scroll;
+}
+.input-group{
+    width: 40% !important;
+    margin-left: 30%;
+}
+.listArtist{
+    border: 1px solid black;
+    margin: 1%;
+    width: 30%;
+    height: 240px;
+    display: inline-block;
+}

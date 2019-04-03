@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="ArtistName " aria-describedby="basic-addon1" (keyup.enter)="getArtist($event)">
+      </div>
+  <p></p>
+  <div class="content-list">
+    <div class="listArtist " *ngFor="let item of listArtist" >
+      <img width="150px" height="150px" src= "{{item?.images[0]?.url}}"  alt="abc"><span style="font-size: 20px;text-align: center"><b>{{item?.name}}</b></span>
+      <p><b>Popularity: </b>{{item?.popularity}}</p>
+      <p><b>Genres: </b><span *ngFor="let genre of item?.genres; let i=index">{{item?.genres[i]}}, </span></p>
+    
+    </div>
+  </div>
+</div>

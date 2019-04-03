@@ -1,0 +1,12 @@
+.btn-secondary {
+   color:black !important;
+   background-color: whitesmoke !important;
+   border-color: white !important;
+}
+.dropdown-item {
+   text-align: center !important;
+}
+.dropdown-menu{
+   border-radius: 10px;
+   background-color: #76e4e8;
+}

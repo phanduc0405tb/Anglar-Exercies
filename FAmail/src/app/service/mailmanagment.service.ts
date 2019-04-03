@@ -9,11 +9,13 @@ export class MailmanagmentService {
 listMail = Listmail;
   constructor() {
    }
-  public getData() {
-    return this.listMail;
+   getData() {
+     return  this.listMail;
   }
-  public getDataByFolder(nameFolder) {
-    this.listMail = this.listMail.filter((mail) => mail.folder === nameFolder);
-    return this.listMail;
+   getDataByFolder(account: string, nameFolder: string) {
+    return  this.listMail.filter((mail) => mail.to === account && mail.folder === nameFolder);
+  }
+  getMailById(id) {
+    return this. listMail.find(x => x._id === id );
   }
 }

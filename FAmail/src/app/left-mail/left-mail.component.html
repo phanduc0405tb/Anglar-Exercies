@@ -1,9 +1,11 @@
-<nav class="navbar bg-light" style=" background-color:#c5bfbf !important" >
+<nav class="navbar bg-light">
     <!-- Links -->
     <ul class="navbar-nav navleft" >
-      <li  [ngClass]="{'nav-item': true}" *ngFor="let item of listFolder" (click)="changActive($event)">
-        <a [ngClass]="{'nav-link': true,'active':true}" href="#" style="color:black"><i class="far fa-folder"></i> {{item.folder}}</a>
+      <li  class="nav-item tagli" *ngFor="let item of listFolder">
+        <a [ngClass]="{'nav-link': true}" [routerLink]="[ '/appmessages',account,'mymessages',item.folder]"  routerLinkActive="active" style="color:black"><i class="far fa-folder"></i> {{item.folder | pipestring}}</a>
       </li>
     </ul>
-  
   </nav>
+  <router-outlet ></router-outlet>
+  <router-outlet name="details"></router-outlet>
+  

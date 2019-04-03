@@ -3,7 +3,13 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-<p>
+
+  <hr>
+  <button (click)="changURL()">RouteByTypescript</button>
+<p><a [routerLink]="[ '/router 01']">Test 01</a></p>
+<p><a [routerLink]="[ '/router 02']">Test 02</a></p>
+  <router-outlet></router-outlet>
+<!-- <p>
   {{dob | date}}
 </p>
 
@@ -27,5 +33,5 @@
   <option value="2">Value 02</option>
   <option value="3">Value 03</option>
   <option value="4">Value 04</option>
-</select>
-<router-outlet></router-outlet>
+</select> -->
+

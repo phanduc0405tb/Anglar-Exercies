@@ -1,31 +1,57 @@
 <div class="container-fluied mt-3" style="margin:20px">
-    <br>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#menu1"> Contacts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#menu2">Preferences</a>
-      </li>
-    </ul>
-  
-    <!-- Tab panes -->
-    <div class="tab-content" > 
-      <div id="home" class="container-fluied tab-pane active"><br>
-        <h3>HOME</h3>
-        <app-left-mail (sendFolderName)="sendData($event)"></app-left-mail>
-        <app-right-mail [foldername]="folder"></app-right-mail>
-      </div>
-      <div id="menu1" class="container-fluied tab-pane fade"><br>
-        <h3>This page is under construction</h3>
-      </div>
-      <div id="menu2" class="container-fluied tab-pane fade"><br>
-        <h3>This page is under construction</h3>
-      </div>
+  <br />
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" >
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1"> Contacts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">Preferences</a>
+    </li>
+    <li class=" ml-auto" style="margin-right: 5px;">
+      <!-- <div class="styled-select slate">
+        <select style="height: 30px;">
+          <option>{{account}}</option>
+        </select>
+        &nbsp;
+      </div> -->
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{account}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Log out</a>
+          </div>
+        </div>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary "><i class="fas fa-home"></i>
+        </button> &nbsp;
+        <button type="button" class="btn btn-primary "><i class="fas fa-envelope"></i> New Messages
+          </button>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container-fluied tab-pane active">
+      <br />
+      <router-outlet></router-outlet>
+      
+      
+    </div>
+    <div id="menu1" class="container-fluied tab-pane fade">
+      <br />
+      <h3>This page is under construction</h3>
+    </div>
+    <div id="menu2" class="container-fluied tab-pane fade">
+      <br />
+      <h3>This page is under construction</h3>
     </div>
   </div>
-  
+</div>

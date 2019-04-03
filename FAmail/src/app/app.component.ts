@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MailmanagmentService } from './service/mailmanagment.service';
 
 @Component({
   selector: 'app-root',

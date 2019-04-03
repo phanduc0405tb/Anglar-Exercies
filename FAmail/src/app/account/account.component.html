@@ -1,0 +1,13 @@
+<div class="login-form">
+
+    <h2 class="text-center">Log in</h2>       
+    <div class="form-group">
+        <input type="text" #user class="form-control" value="myself@angular.dev" placeholder="Username" required="required">
+    </div>
+    <div class="form-group">
+        <input type="password" #password class="form-control" value="12345" placeholder="Password" required="required">
+    </div>
+    <div class="form-group">
+        <button (click)="onCLick(user,password)" class="btn btn-primary btn-block">Log in</button>
+    </div>    
+</div>

@@ -1,0 +1,7 @@
+<p>
+  All Children
+</p>
+<p ><a [routerLink]="[ '/router 02',{outlets:{'children01':['children A']}}]">children A</a></p>
+<p><a [routerLink]="[ '/router 02', {outlets:{'children02':['children B']}}]">children B</a></p>
+<router-outlet name='children01'></router-outlet>
+<router-outlet name='children02'></router-outlet>

@@ -1,0 +1,72 @@
+.container-fluid{
+    background-color: #a9d7d1;
+    margin: 0;
+}
+.container{
+    background-color: white;
+    margin: 0% 20%;
+    border-radius: 10px;
+}
+.rightTab {
+    display: inline-block;
+    text-align: left;
+    width: 48%;
+    vertical-align: middle;
+}
+.input-field{
+    height: 20px;
+    width: 280px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    display: inline-block;
+}
+.labels{
+    display: inline-block;
+    text-align: right;
+    width: 40%;
+    padding: 5px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+.dropdown {
+    height: 35px;
+    width: 140px;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 15px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+}
+.radio{
+    position: relative;
+    left: -5px;
+    margin-left: 10px;
+    display: block;
+}
+input[type="checkbox" i] {
+    margin: 3px 3px 3px 4px;
+}
+.btn-submit {
+    background-color: #59ace0;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    margin-left: 43%;
+    border: 0px solid;
+}
+.btn-hover{
+    color: white;
+}
+.btn-hover:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+.error-input{
+color: red;
+margin-left: 42%;
+}

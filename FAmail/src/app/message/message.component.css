@@ -1,0 +1,18 @@
+.content-detail{
+    margin-top: 20px;
+
+}
+.header-detail {
+    background-color: darkgray;
+    height: 125px;
+    padding-top: 20px;
+}
+.date{
+    font-size: 1.25em !important;
+}
+.edit{
+    margin-bottom: 10px !important;
+}
+:host(.active) {
+    background-color: blue;
+  }
