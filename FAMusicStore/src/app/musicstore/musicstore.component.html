@@ -1,14 +1,67 @@
 <div class="container">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="ArtistName " aria-describedby="basic-addon1" (keyup.enter)="getArtist($event)">
-      </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="ArtistName "
+      aria-describedby="basic-addon1"
+      (keyup.enter)="getArtist($event)"
+    />
+  </div>
   <p></p>
-  <div class="content-list">
-    <div class="listArtist " *ngFor="let item of listArtist" >
-      <img width="150px" height="150px" src= "{{item?.images[0]?.url}}"  alt="abc"><span style="font-size: 20px;text-align: center"><b>{{item?.name}}</b></span>
-      <p><b>Popularity: </b>{{item?.popularity}}</p>
-      <p><b>Genres: </b><span *ngFor="let genre of item?.genres; let i=index">{{item?.genres[i]}}, </span></p>
-    
+  <div class="content-list" *ngIf="listArtist?.length != 0">
+    <div
+      class="listArtist "
+      *ngFor="let item of listArtist"
+      (click)="getArtistTopTracks(item?.id)"
+    >
+      <img
+        width="100%"
+        height="200px"
+        [src]="
+          (item?.images)[0]?.url != null ? (item?.images)[0]?.url : urlNoAvatar
+        "
+        alt="abc"
+      /><span style="font-size: 18px;text-align: center"
+        ><b>{{ item?.name }}</b></span
+      >
+      <p><b>Popularity: </b>{{ item?.popularity }}</p>
+      <span
+        ><b>Genres: </b
+        ><span *ngFor="let genre of item?.genres; let i = index"
+          >{{ (item?.genres)[i] }},
+        </span></span
+      >
     </div>
+  </div>
+  <div class="top-track" *ngIf="listTopTrackArtist?.length != 0">
+    <div class="row" *ngFor="let track of listTopTrackArtist">
+      <div class="col-md-2">
+        <img
+          width="70px"
+          height="80px"
+          [src]="(track?.album.images)[2].url"
+          alt="images"
+        />
+      </div>
+      <div class="col-md-10">
+        <span>{{ track.name }}</span> |
+        <span>{{ track.album.release_date }}</span>
+        <p>Type: {{ track.type }}</p>
+        <audio
+          *ngIf="track?.preview_url != null"
+          [src]="track?.preview_url"
+          class="content-audio"
+          controls="controls"
+        ></audio>
+        <p *ngIf="track?.preview_url == null">No Preview URL.</p>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="listArtist?.length != 0 && listTopTrackArtist?.length == 0"
+    class="message"
+  >
+    No Top Track
   </div>
 </div>
