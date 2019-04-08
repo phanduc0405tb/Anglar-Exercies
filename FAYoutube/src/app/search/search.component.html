@@ -1,8 +1,38 @@
 <div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-      <div class="searchbar">
-        <input class="search_input" type="text" name="" placeholder="Search...">
-        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input
+            #textSearch
+            class="search_input"
+            type="text"
+            name=""
+            placeholder="Search..."
+            (keyup.enter)="sentData(textSearch)"
+          />
+          <a
+            href="#"
+            class="search_icon"
+            (click)="sentData(textSearch)"
+            [routerLink]="['/search', textSearch.value]"
+            ><i class="fas fa-search"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="styled-select black rounded">
+        <select #order (change)='changeFiledOrder(textSearch,order)'>
+          <option value="title" selected>Title</option>
+          <option value="rating">Rating</option>
+          <option value="relevance">Relevance</option>
+          <option value="date">Date</option>
+          <option value="videoCount">VideoCount</option>
+          <option value="viewCount">ViewCount</option>
+        </select>
       </div>
     </div>
   </div>
+</div>
+<router-outlet></router-outlet>

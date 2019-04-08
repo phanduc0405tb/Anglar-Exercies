@@ -1,0 +1,17 @@
+.result {
+  margin: auto;
+  margin-top: 40px;
+}
+.result-search {
+  margin-top: 20px;
+}
+.result-search a{
+  text-decoration: none;
+}
+.detail{
+  margin-top: 20px;
+}
+.footer{
+  margin-top: 20px;
+  padding-left: 24%;
+}

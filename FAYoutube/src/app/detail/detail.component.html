@@ -1,0 +1,81 @@
+<div class="detail-video">
+  <div class="row">
+    <div class="col-md-7 videoDetail">
+      <iframe
+        width="640"
+        height="500"
+        src="https://www.youtube.com/embed/"
+      >
+      </iframe>
+       <span class="displayTime">{{ (videoDetail?.items)[0]?.contentDetails?.duration | convert }}</span>
+      <p class="statistics">
+        <span>
+          <i class="fas fa-eye"></i>
+          {{ (videoDetail?.items)[0]?.statistics?.viewCount }}</span
+        >
+        <span>
+          <i class="fas fa-heart"></i>
+          {{ (videoDetail?.items)[0]?.statistics?.favoriteCount }}</span
+        >
+        <span class="like">
+          <i class="fas fa-thumbs-up"></i>
+          {{ (videoDetail?.items)[0]?.statistics?.likeCount }}</span
+        >
+        <span>
+          <i class="fas fa-thumbs-down"></i>
+          {{ (videoDetail?.items)[0]?.statistics?.dislikeCount }}</span
+        >
+      </p>
+      <div>
+        <h5>
+          {{ (videoDetail?.items)[0]?.snippet?.channelTitle }}(
+          {{ (videoDetail?.items)[0]?.snippet?.title }} )
+        </h5>
+        <h6>
+          The duration: {{ (videoDetail?.items)[0]?.contentDetails?.duration | convert }}
+        </h6>
+        <div class="crop">
+          <b>The description: </b
+          >{{ (videoDetail?.items)[0]?.snippet?.description }}
+        </div>
+        <p class="crop">
+          <b>The tag: </b>
+          <span *ngFor="let item of (videoDetail?.items)[0]?.snippet?.tags"
+            >{{ item }},
+          </span>
+        </p>
+        <p>
+          <span class="like">
+            <i class="fas fa-comments"></i>
+            {{ (videoDetail?.items)[0]?.statistics?.commentCount }} nhận
+            xét</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-md-5 list-related-video">
+      <div class="row related-video" *ngFor="let video of listRelatedVideos">
+        <a [routerLink]="['/search',textSearch, orderBy, video?.id?.videoId]">
+          <div class="col-md-4">
+            <img
+              [src]="video?.snippet?.thumbnails?.high?.url"
+              width="180px"
+              height="130px"
+              alt=""
+            />
+          </div>
+        </a>
+        <div class="col-md-6">
+          <a [routerLink]="['/search', textSearch, orderBy, video?.id?.videoId]"
+            ><h5 class="crop">{{ video?.snippet?.title }}</h5></a
+          >
+          <span>{{ video?.snippet?.publishedAt | date: 'dd/MM/yyyy' }}</span
+          ><br />
+          <p class="crop">
+            <span>{{ video?.snippet?.description }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
